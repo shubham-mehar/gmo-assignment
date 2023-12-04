@@ -24,7 +24,7 @@ const DepartmentList = () => {
     const newSelected = [...selectedDepartments];
 
     if (currentIndex === -1) {
-      newSelected.push(department, ...departmentsData.find((dep) => dep.department === department)?.sub_departments);
+      newSelected.push(department, ...departmentsData.find((dep) => dep.department === department)?.sub_departments || []);
     } else {
       newSelected.splice(currentIndex, 1);
       newSelected.splice(
@@ -75,7 +75,7 @@ const DepartmentList = () => {
           <Collapse in={selectedDepartments.includes(dep.department)} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               {dep.sub_departments.map((subDep) => (
-                <ListItem key={subDep} button onClick={() => handleToggle(subDep)}>
+                <ListItem key={subDep} button onClick={() => handleToggle(subDep)} style={{ paddingLeft: '50px' }}>
                   <ListItemIcon>
                     <Checkbox
                       icon={<CheckBoxOutlineBlankIcon />}

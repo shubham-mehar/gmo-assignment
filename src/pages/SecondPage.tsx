@@ -27,7 +27,8 @@ const SecondPage = () => {
   return (
     <div>
       <h2>Second Page</h2>
-      <DataGrid rows={data} columns={columns} pageSize={5} />
+      <DataGrid rows={data} columns={columns} 
+      />
       <DepartmentList />
     </div>
   );
