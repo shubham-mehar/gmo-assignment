@@ -5,6 +5,7 @@ import SecondPage from './pages/SecondPage';
 const checkUserDetails = () => {
   const userData = localStorage.getItem('userData');
   if (!userData) {
+    console.log("rrr");
     return <Navigate to="/" state={{ message: 'Please enter your details on the first page.' }} />;
   }
   return null;
@@ -15,8 +16,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<FirstPage />} />
       <Route path="/second-page" element={<>
-            {checkUserDetails()}
-            <SecondPage />
+            {checkUserDetails()&&
+            <SecondPage />}
           </>}/>
     </Routes>
   );
